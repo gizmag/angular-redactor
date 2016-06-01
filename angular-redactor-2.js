@@ -22,14 +22,14 @@
                     // Expose scope var with loaded state of Redactor
                     scope.redactorLoaded = false;
 
-                    var updateModel = function updateModel(value) {
+                    var updateModel = _.debounce(function updateModel(value) {
                             // $timeout to avoid $digest collision
                             $timeout(function() {
                                 scope.$apply(function() {
                                     ngModel.$setViewValue(value);
                                 });
                             });
-                        },
+                        }, 1000),
                         options = {
                             callbacks: {
                                 change: updateModel
