@@ -29,7 +29,7 @@
                                     ngModel.$setViewValue(value);
                                 });
                             });
-                        }, 1000),
+                        }, 200),
                         options = {
                             callbacks: {
                                 change: updateModel
